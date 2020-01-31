@@ -23,17 +23,17 @@ class GUI:
         self.itemoftheday = self.easyitems[0][rand(0, len(self.easyitems[0])-1)]
 
         # Load ttfs and images
-        self.timfont = pygame.font.Font(dirprefix + 'Journal.ttf', 96)
-        self.menubfont = pygame.font.Font(dirprefix + 'Hashtag.ttf', 48)
-        self.menufont = pygame.font.Font(dirprefix + 'Hashtag.ttf', 28)
-        self.biggeneralfont = pygame.font.Font(dirprefix + 'Halogen.ttf', 48)
-        self.generalfont = pygame.font.Font(dirprefix + 'Halogen.ttf', 28)
-        self.boldreceiptfont = pygame.font.Font(dirprefix + 'Consolab.ttf', 18)
-        self.bigreceiptfont = pygame.font.Font(dirprefix + 'Consolas.ttf', 32)
-        self.receiptfont = pygame.font.Font(dirprefix + 'Consolas.ttf', 18)
-        self.tickimage = pygame.image.load(dirprefix + 'tick.png')
-        self.ximage = pygame.image.load(dirprefix + 'cancel.png')
-        self.backimage = pygame.image.load(dirprefix + 'back.png')
+        self.timfont = pygame.font.Font(dirprefix + 'files\\Journal.ttf', 96)
+        self.menubfont = pygame.font.Font(dirprefix + 'files\\Hashtag.ttf', 48)
+        self.menufont = pygame.font.Font(dirprefix + 'files\\Hashtag.ttf', 28)
+        self.biggeneralfont = pygame.font.Font(dirprefix + 'files\\Halogen.ttf', 48)
+        self.generalfont = pygame.font.Font(dirprefix + 'files\\Halogen.ttf', 28)
+        self.boldreceiptfont = pygame.font.Font(dirprefix + 'files\\Consolab.ttf', 18)
+        self.bigreceiptfont = pygame.font.Font(dirprefix + 'files\\Consolas.ttf', 32)
+        self.receiptfont = pygame.font.Font(dirprefix + 'files\\Consolas.ttf', 18)
+        self.tickimage = pygame.image.load(dirprefix + 'files\\tick.png')
+        self.ximage = pygame.image.load(dirprefix + 'files\\cancel.png')
+        self.backimage = pygame.image.load(dirprefix + 'files\\back.png')
 
         self.resetOrder()
 
@@ -249,19 +249,19 @@ class GUI:
         pass
 
     def appendHistory(self):
-        with open(dirprefix + 'history.json', 'r') as f:
-            history = json.load(f)
+        with open(dirprefix + "history.json", 'r') as f:
+            self.history = json.load(f)
             f.close()
-        print(history)
+        #print(history)
 
-        history['orders'].append([self.order, self.table, self.price])
-        for i, item in enumerate(history['totals']):
-            history['totals'][i] = history['totals'][i] + self.order[i]
+        self.history['orders'].append([self.order, self.table, self.price])
+        for i, item in enumerate(self.history['totals']):
+            self.history['totals'][i] = self.history['totals'][i] + self.order[i]
 
-        print(history)
+        #print(history)
 
-        with open(dirprefix + 'history.json', 'w') as f:
-            f.write(json.dumps(history))
+        with open(dirprefix + "history.json", 'w') as f:
+            f.write(json.dumps(self.history))
 
     def resetOrder(self):
         self.order = []
