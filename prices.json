@@ -1,0 +1,22 @@
+{
+  "Breakfast" : [
+    [ "All Day (L)", 5.50 ],
+    [ "All Day (S)", 3.30 ]
+  ],
+  "Mains" : [
+    [ "Hot dog", 3.00 ],
+    [ "Burger", 4.00 ],
+    [ "Cheese Burger", 4.25 ],
+    [ "Chicken Goujons", 3.50 ]
+  ],
+  "Extras" : [
+    [ "Fries", 1.75 ],
+    [ "Salad", 2.20 ]
+  ],
+  "Drinks" : [
+    [ "Milkshake", 2.20 ],
+    [ "Soft Drinks", 1.30 ],
+    [ "Still water", 0.90 ],
+    [ "Sparkling water", 0.90 ]
+  ]
+}
