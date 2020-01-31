@@ -14,7 +14,7 @@ DEVMODE = False
 if DEVMODE:
     dirprefix = os.getcwd() + ("\\" if os.getcwd()[-11::] == "Tim's Diner" else "\\Tim's Diner\\")
 else:
-    dirprefix = os.getcwd()
+    dirprefix = os.getcwd() + '\\'
     
 class GUI:
     def __init__(self):
