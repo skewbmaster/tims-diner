@@ -9,8 +9,13 @@ screen = pygame.display.set_mode((width,height), HWSURFACE|DOUBLEBUF|NOFRAME)
 pygame.display.set_caption("Tim's Diner")
 clock = pygame.time.Clock()
 
-dirprefix = os.getcwd() + ("\\" if os.getcwd()[-11::] == "Tim's Diner" else "\\Tim's Diner\\")
+DEVMODE = False
 
+if DEVMODE:
+    dirprefix = os.getcwd() + ("\\" if os.getcwd()[-11::] == "Tim's Diner" else "\\Tim's Diner\\")
+else:
+    dirprefix = os.getcwd()
+    
 class GUI:
     def __init__(self):
         # Init the class
